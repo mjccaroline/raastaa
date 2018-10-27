@@ -6,6 +6,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 
 import { Routes,RouterModule } from '@angular/router';
+import {FormsModule} from '@angular/forms';
+
 import { ArticlesComponent } from './articles/articles.component';
 import { EventsComponent } from './events/events.component';
 import { SignupComponent } from './signup/signup.component';
@@ -31,7 +33,8 @@ const appRouts:Routes=[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRouts)
+    RouterModule.forRoot(appRouts),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent,NavbarComponent]

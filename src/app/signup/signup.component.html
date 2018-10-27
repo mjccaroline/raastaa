@@ -7,43 +7,60 @@
 </div>
 <div class="container">
     <div class="row">
-      <form class="form-horizontal" action="/action_page.php">
-        <div class="form-group">
-          <label for="username" class="control-label col-sm-2">Username</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="username" placeholder="Enter username">
-          </div>
+      <form class="form-horizontal" (submit)="createUser(userForm)" #userForm="ngForm">
+        <div class="panel panel-success">
+            <div class="panel-heading">Login Info</div>
+            <div class="form-group">
+                <label for="username" class="control-label col-sm-2">Username</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="username" placeholder="Enter username" ngModel required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Password:</label>
+                <div class="col-sm-10"> 
+                  <input type="password" class="form-control" name="pwd" placeholder="Enter password" ngModel required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="cnfpwd">Confirm password:</label>
+                <div class="col-sm-10"> 
+                  <input type="password" class="form-control" name="cnfpwd" placeholder="Cofirm password" ngModel required>
+                </div>
+              </div>
+      
+        </div>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">Personal Info</div>
+            <div class="form-group">
+                <label for="name" class="control-label col-sm-2">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="name" placeholder="Enter Name"  ngModel required>
+                </div>
+              </div>
+    
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" name="email" placeholder="Enter email"  ngModel required email>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-sm-2" for="phone">Phone:</label>
+                  <div class="col-sm-10">
+                    <input type="phone" class="form-control" name="phone" placeholder="Enter phone" ngModel required>
+                  </div>
+                </div>
+            
         </div>
         
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="pwd">Password:</label>
-          <div class="col-sm-10"> 
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="cnfpwd">Confirm password:</label>
-          <div class="col-sm-10"> 
-            <input type="password" class="form-control" id="cnfpwd" placeholder="Cofirm password">
-          </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Email:</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="email" placeholder="Enter email">
-            </div>
-          </div>
-          <div class="form-group">
-              <label class="control-label col-sm-2" for="phone">Phone:</label>
-              <div class="col-sm-10">
-                <input type="phone" class="form-control" id="phone" placeholder="Enter phone">
-              </div>
-            </div>
         <div class="form-group"> 
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Submit</button>
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
           </div>
-        </div>
       
       </form>
     </div>
