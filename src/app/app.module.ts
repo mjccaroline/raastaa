@@ -7,11 +7,13 @@ import { HomeComponent } from './home/home.component';
 
 import { Routes,RouterModule } from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 import { ArticlesComponent } from './articles/articles.component';
 import { EventsComponent } from './events/events.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { NewUser } from './service';
 
 const appRouts:Routes=[
   {path:'',component:HomeComponent},
@@ -34,9 +36,10 @@ const appRouts:Routes=[
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRouts),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [NewUser],
   bootstrap: [AppComponent,NavbarComponent]
 })
 export class AppModule { }

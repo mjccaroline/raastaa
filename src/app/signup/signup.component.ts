@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms'
+import { User } from '../model';
+import { NewUser } from '../service';
 
 @Component({
   selector: 'app-signup',
@@ -7,13 +9,10 @@ import {NgForm} from '@angular/forms'
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-username="";
-password="";
-name="";
-email="";
-phone="";
+
 valid=false;
 
+constructor(private newUser:NewUser) { }
 
 createUser(userForm:NgForm) {
   console.log(userForm);
@@ -25,17 +24,28 @@ createUser(userForm:NgForm) {
     alert('Password and Confirm password are not matching');
   }
   else {
+
     this.valid=userForm.valid;
-    this.username=userForm.value.username;
-    this.password=userForm.value.password;
-    this.name=userForm.value.name;
-    this.email=userForm.value.email;
-    this.phone=userForm.value.phone;
+    const user:User={
+      username:userForm.value.username,
+      password:userForm.value.pwd,
+      name:userForm.value.name,
+      email:userForm.value.email,
+      phone:userForm.value.phone
+    }
     
+    console.log(user);
+    this.newUser.signup(user).subscribe((data)=>{
+      console.log(data);
+      alert("New user created!!!");      
+    },(error)=>{
+      console.log(error);
+      
+    });
   }
 
 }
-  constructor() { }
+  
 
   ngOnInit() {
   }
