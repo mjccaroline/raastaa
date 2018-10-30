@@ -13,7 +13,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { EventsComponent } from './events/events.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
-import { NewUser } from './service';
+import { ApiService } from './service';
 
 const appRouts:Routes=[
   {path:'',component:HomeComponent},
@@ -39,7 +39,7 @@ const appRouts:Routes=[
     FormsModule,
     HttpClientModule
   ],
-  providers: [NewUser],
+  providers: [ApiService],
   bootstrap: [AppComponent,NavbarComponent]
 })
 export class AppModule { }

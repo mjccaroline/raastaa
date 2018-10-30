@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms'
 import { User } from '../model';
-import { NewUser } from '../service';
+import { ApiService } from '../service';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
 
 valid=false;
 
-constructor(private newUser:NewUser) { }
+constructor(private newUser:ApiService) { }
 
 createUser(userForm:NgForm) {
   console.log(userForm);
